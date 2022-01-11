@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"),
+    url("../fonts/Montserrat/Montserrat-Regular.ttf") format("truetype");
+}
+
+body {
+  background: #f0f2f5;
+  margin: 0;
+  font-family: "Montserrat", cursive;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+}
+
+.site-layout .site-layout-background {
+  background: #fff;
+}
+.ant-layout {
+  height: 100vh;
+}
