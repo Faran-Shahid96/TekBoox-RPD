@@ -19,11 +19,11 @@ axiosInstance.interceptors.response.use(
     return response;
   },
   (error) => {
-    /* if (typeof window !== "undefined") {
+    if (typeof window !== "undefined") {
       if (error?.response?.status === 401) {
         window.location.href = "/";
       }
-    } */
+    }
     return Promise.reject(error.response);
   }
 );

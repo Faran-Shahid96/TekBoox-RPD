@@ -1,8 +1,8 @@
 import React from "react";
-import { Card, Form, Input, Button, Typography } from "antd";
+import { Card, Form, Input, Button, Typography, Switch } from "antd";
 import { SaveOutlined, SettingOutlined } from "@ant-design/icons";
 const { Title } = Typography;
-export default function SmsSetting({ formData }) {
+export default function EmailConfigSetting({ formData }) {
   const onSubmitForm = (values) => {
     return null;
   };
@@ -11,13 +11,13 @@ export default function SmsSetting({ formData }) {
     <div>
       <Title level={4}>
         <SettingOutlined />
-        SMS CONFIGURATION SETTINGS
+        EMAIL CONFIGURATION
       </Title>
       <Card hoverable={true} style={{ width: 600 }}>
         <Form
-          name="SmsSettingForm"
+          name="EmailSettingForm"
           layout="horizontal"
-          labelCol={{ span: 7 }}
+          labelCol={{ span: 6 }}
           wrapperCol={{ span: 16 }}
           /*  initialValues={{
           name: formData?.hostname,
@@ -27,40 +27,69 @@ export default function SmsSetting({ formData }) {
           onFinish={onSubmitForm}
         >
           <Form.Item
-            label="SMSAPI Key"
+            label="Host Name"
             name="hostname"
             rules={[
               {
                 required: true,
-                message: "Please input SMSAPI Key!",
+                message: "Please input Host Name!",
               },
             ]}
           >
             <Input />
           </Form.Item>
           <Form.Item
-            label="SMSAPI Secret"
+            label="Port No."
             name="display_name"
             rules={[
               {
                 required: true,
-                message: "Please input SMSAPI Secret!",
+                message: "Please input Port No.!",
               },
             ]}
           >
             <Input />
           </Form.Item>
           <Form.Item
-            label="SMSFrom Number"
+            label="Sender Email"
             name="description"
             rules={[
               {
                 required: true,
-                message: "Please input SMSFrom Number!",
+                message: "Please input Sender Email!",
+                type: "email",
               },
             ]}
           >
             <Input />
+          </Form.Item>
+          <Form.Item
+            label="Sender Password"
+            name="password"
+            rules={[
+              {
+                required: true,
+                message: "Please input Sender Password!",
+              },
+            ]}
+          >
+            <Input.Password />
+          </Form.Item>
+          <Form.Item
+            label="Recipient Email"
+            name="email"
+            rules={[
+              {
+                required: true,
+                message: "Please input Recipient Email",
+                type: "email",
+              },
+            ]}
+          >
+            <Input allowClear />
+          </Form.Item>
+          <Form.Item label="SSL" name="SSL" valuePropName="checked">
+            <Switch />
           </Form.Item>
           <Form.Item>
             <Button type="primary" htmlType="submit" icon={<SaveOutlined />}>

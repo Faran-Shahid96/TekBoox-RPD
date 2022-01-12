@@ -8,8 +8,14 @@ const ForgetPasswordPage = lazy(() =>
   import("../../views/public/ForgetPassword")
 );
 const Home = lazy(() => import("../../views/private/Home"));
-const Settings = lazy(() => import("../../views/private/Settings"));
+const EmailSettings = lazy(() =>
+  import("../../views/private/Settings/EmailSetting")
+);
+const SMSSettings = lazy(() =>
+  import("../../views/private/Settings/SmsSetting")
+);
 const User = lazy(() => import("../../views/private/UserManagement"));
+const ChangePassword = lazy(() => import("../../views/private/ChangePassword"));
 export default function RoutesIndex() {
   return (
     <BrowserRouter>
@@ -21,7 +27,9 @@ export default function RoutesIndex() {
         <Route element={<PrivateRoute />}>
           <Route path="home" element={<Home />} />
           <Route path="users" element={<User />} />
-          <Route path="settings" element={<Settings />} />
+          <Route path="settings/email-setting" element={<EmailSettings />} />
+          <Route path="settings/sms-config" element={<SMSSettings />} />
+          <Route path="/change-password" element={<ChangePassword />} />
         </Route>
         <Route path="*" element={<ErrorPage />} />
       </Routes>

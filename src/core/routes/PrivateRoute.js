@@ -6,12 +6,7 @@ export default function PrivateRoute(props) {
   const checkToken = useSelector((state) => state.userObj.userObj);
   return (
     <>
-      <UserLayout {...props}>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Outlet />
-        </Suspense>
-      </UserLayout>
-      {/*  {checkToken?.token ? (
+      {checkToken?.token ? (
         <UserLayout {...props}>
           <Suspense fallback={<div>Loading...</div>}>
             <Outlet />
@@ -21,7 +16,7 @@ export default function PrivateRoute(props) {
         <>
           <Navigate to="/" />
         </>
-      )} */}
+      )}
     </>
   );
 }

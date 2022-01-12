@@ -34,7 +34,7 @@ function Roles() {
     try {
       getRoles().then((res) => {
         SetLoadingData(false);
-        //SetRolesData(res?.response?.data);
+        SetRolesData(res?.response?.data);
       });
     } catch (EX) {
       console.log("Get Role Exception", EX);
